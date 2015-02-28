@@ -1,3 +1,3 @@
-# Holiday App II
+# Mailjet Widget
 
-A simple application that uses the HolidAPI to demonstrate basic dynamic programming
+Simple application that generates a subscribe widget for mailjet and acts as an endpoint for form calls
