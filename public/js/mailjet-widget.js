@@ -3,7 +3,12 @@ $( document ).ready(function() {
     e.preventDefault();
     var url = "addContact?"+$("#mailjet-widget").serialize();
     $.post( url, function( data ) {
-      alert(data.count);
+      if (data.status === "ok"){
+        alert(data.message);
+      }
+      else if (data.status === "error"){
+        alert(data.message);
+      }
     });
   });
 });
