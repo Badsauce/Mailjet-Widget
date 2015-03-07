@@ -37,13 +37,8 @@ class MyWebApp < Sinatra::Base
   get '/addContact' do
     content_type :json
     #create new contact
-    @id = -1
-    begin
-      @contact = Mailjet::Contact.create(email: params['email'])
-      @id = @contact.id
-    rescue
-      return {:status => 'error', :message => 'An error occured when creating the contact'}.to_json
-    end
+    @contact = Mailjet::Contact.create(email: params['email'])
+    @id = @contact.id
 
     #add contact to mailing list
 
