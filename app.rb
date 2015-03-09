@@ -1,19 +1,8 @@
 require 'sinatra'
 require 'json'
 require 'mailjet'
-require 'sinatra/cross_origin'
 
 require_relative 'mailjet-config'
-
-configure do
-  enable :cross_origin
-end
-
-set :allow_origin, :any
-set :allow_methods, [:get, :post, :options]
-set :allow_credentials, true
-set :max_age, "1728000"
-set :expose_headers, ['Content-Type']
 
 class MyWebApp < Sinatra::Base
   get '/' do
@@ -25,6 +14,7 @@ class MyWebApp < Sinatra::Base
 
   post '/addContact' do
     content_type :json
+    headers "Access-Control-Allow-Origin" => "*"
     #create new contact
     @id = nil
     begin
