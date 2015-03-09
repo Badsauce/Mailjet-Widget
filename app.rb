@@ -1,8 +1,13 @@
 require 'sinatra'
 require 'json'
 require 'mailjet'
+require 'sinatra/cross_origin'
 
 require_relative 'mailjet-config'
+
+configure do
+  enable :cross_origin
+end
 
 class MyWebApp < Sinatra::Base
   get '/' do
